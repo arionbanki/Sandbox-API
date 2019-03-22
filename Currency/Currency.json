@@ -1,0 +1,121 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "Currency Rates API",
+    "version": "v1"
+  },
+  "host": "arionapi-sandbox.azure-api.net",
+  "basePath": "/currency/v1",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/currencyRates": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Returns information about available currency exhange rates"
+      }
+    },
+    "/currencyRates/{currencyTypeName}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "currencyTypeName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/currencyWithBuyAndSellRateCollection"
+            }
+          }
+        },
+        "description": "Returns information about a particular exchange rate"
+      }
+    }
+  },
+  "definitions": {
+    "currencyWithBuyAndSellRateCollection": {
+      "properties": {
+        "currencyWithBuyAndSellRate": {
+          "items": {
+            "properties": {
+              "buyRate": {
+                "description": "Buy rate.",
+                "type": "number"
+              },
+              "currencyCode": {
+                "description": "Currency code.",
+                "type": "string"
+              },
+              "currencyTypeName": {
+                "description": "Descriptive name for the type.",
+                "enum": [
+                  "CentralBankRate",
+                  "ValitorRate",
+                  "BorgunRate"
+                ]
+              },
+              "midRate": {
+                "description": "Mid rate.",
+                "type": "number"
+              },
+              "sellRate": {
+                "description": "Selling rate.",
+                "type": "number"
+              },
+              "timestamp": {
+                "description": "Timestamp when the currency was valid.",
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "required": [
+              "currencyCode",
+              "currencyTypeName",
+              "timestamp",
+              "buyRate",
+              "sellRate"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "totalCount": {
+          "description": "Fjöldi færslna í sem hægt er að sækja.",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {}
+}

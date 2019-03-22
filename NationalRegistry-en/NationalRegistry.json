@@ -1,0 +1,222 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "National Registry API",
+    "version": "v1"
+  },
+  "host": "arionapi-sandbox.azure-api.net",
+  "basePath": "/nationalregistry/v1",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/nationalRegistryParties": {
+      "get": {
+        "parameters": [
+          {
+            "default": 1,
+            "description": "The page parameter defines the page number of the result set to return the data. For example, if your query returns 500 records, you can specify pageCount as 50 to return 50 records in a page, which implies that you’ll have 10 pages of data (50 records * 10 pages = 500). Now, if you want to return records 100-150, specify the page value as 3",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The perPage parameter defines the number of records to return per page.",
+            "in": "query",
+            "maximum": 500,
+            "name": "perPage",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The name, either in full or partial entry.",
+            "in": "query",
+            "name": "partialName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The kennitala, either in full or partial entry.",
+            "in": "query",
+            "name": "partialKennitala",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/nationalRegistryPartyCollection"
+            }
+          }
+        },
+        "description": "Returns information about parties from the Icelandic National Registry, both individuals and corporations."
+      }
+    },
+    "/nationalRegistryParties/{kennitala}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "kennitala",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/nationalRegistryParty"
+            }
+          }
+        },
+        "description": "A uniquely identifiable party, by kennitala."
+      }
+    }
+  },
+  "definitions": {
+    "nationalRegistryParty": {
+      "description": "Legal entity, individual or organization.",
+      "properties": {
+        "city": {
+          "description": "City or town indicated by the postal code.",
+          "type": "string"
+        },
+        "fate": {
+          "description": "Fate of the party.",
+          "enum": [
+            "alive",
+            "deceased",
+            "removed",
+            "changed",
+            "other"
+          ]
+        },
+        "fullName": {
+          "description": "Full name of the individual or organization.",
+          "type": "string"
+        },
+        "home": {
+          "description": "The legal residence of the party in question.",
+          "type": "string"
+        },
+        "kennitala": {
+          "description": "Kennitala úr Þjóðskrá eða fyrirtækjaskrá.",
+          "type": "string"
+        },
+        "postalCode": {
+          "description": "The postal code of the residence.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kennitala",
+        "fullName",
+        "home",
+        "postalCode",
+        "city",
+        "fate"
+      ],
+      "type": "object"
+    },
+    "nationalRegistryPartyCollection": {
+      "properties": {
+        "nationalRegistryParty": {
+          "items": {
+            "properties": {
+              "city": {
+                "description": "City or town indicated by the postal code.",
+                "type": "string"
+              },
+              "fate": {
+                "description": "Fate of the party.",
+                "enum": [
+                  "alive",
+                  "deceased",
+                  "removed",
+                  "changed",
+                  "other"
+                ]
+              },
+              "fullName": {
+                "description": "Full name of the individual or organization.",
+                "type": "string"
+              },
+              "home": {
+                "description": "The legal residence of the party in question.",
+                "type": "string"
+              },
+              "kennitala": {
+                "description": "Kennitala úr Þjóðskrá.",
+                "type": "string"
+              },
+              "postalCode": {
+                "description": "The postal code of the residence.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "kennitala",
+              "fullName",
+              "home",
+              "postalCode",
+              "city",
+              "fate"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "paging": {
+          "properties": {
+            "totalPages": {
+              "type": "integer"
+            },
+            "totalRecords": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "paging"
+      ],
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "oauth_2_0_undefined": {
+      "authorizationUrl": "https://arionapi-identityserver3-sandbox.azurewebsites.net/connect/authorize",
+      "description": "OAuth2 is a protocol that lets external apps request authorization to private\ndetails in a user's financial data.\n",
+      "scopes": {
+        "financial": ""
+      },
+      "flow": "implicit",
+      "type": "oauth2"
+    }
+  }
+}
