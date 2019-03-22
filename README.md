@@ -59,7 +59,7 @@ You will be prompted with: YOURCLIENTID registered, your secret is: xxxxxxxx-xxx
 
 # 3. Assign Registered client to a user
 Select **Browser** of your choice and goto the url below.
-Use the clientId you were provided with on the [Developer profile page](https://arionapi-sandbox.portal.azure-api.net/developer)
+Use the clientId you chose in Step 2.
 https://arionapi-identityserver3-sandbox.azurewebsites.net/NewUser?clientId=YOURCLIENTID |
 
 You will be prompted with: Username: John Doe, Password: xxxxxxxxx - please store it carefully, you will never see this again!
