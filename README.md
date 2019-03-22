@@ -36,17 +36,7 @@ In the [Developer profile page](https://arionapi-sandbox.portal.azure-api.net/de
 You are provided with two developer keys for every subscription: Primary and Secondary
 
 
-# 2. Getting Client ID and Client Secret
-On the [Developer profile page](https://arionapi-sandbox.portal.azure-api.net/developer)
-
-You can register your application
-
-Select **Register Application**
-
-You are provided with clientid
-
-
-# 3. Register Client
+# 3. Getting Client ID and Client Secret
  
 To register your client in IdentityServer, you need to provide 3 things:
 
