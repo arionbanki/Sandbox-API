@@ -60,7 +60,7 @@
   },
   "host": "arionapi-sandbox.azure-api.net",
   "info": {
-    "description": "## About CurrencyRates - CurrencyRates\nThis service contains information on official exchange rates for different periods. The data should reflect the updated exchange rate displayed on Arion Bank’s website.\n",
+    "description": "## CurrencyRates - CurrencyRates\nThis service contains information on official exchange rates for different periods. The data should reflect the updated exchange rate displayed on Arion Bank’s website.\n",
     "title": "Currency Rates API",
     "version": "v1"
   },

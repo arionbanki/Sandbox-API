@@ -2,7 +2,7 @@
 https://arionapi-sandbox.azure-api.net/accounts/v1
 
 
-### About Accounts - Deposit accounts
+### Accounts - Deposit accounts
 This service contains information on bank accounts to which a logged in user has access. In the case of test users, random data is created when logging in for first time and continues to be used after that.
 
 The information is comparable to the data which users have access to via Arion Online Banking, Arion App and Arion Bank’s B2B solutions. The user can both view their current and savings accounts.  The basic information for each account is displayed and transactions and balances can be viewed for each account.

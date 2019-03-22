@@ -2,7 +2,7 @@
 https://arionapi-sandbox.azure-api.net/claims/v1
 
 
-### About Claims - Claims
+### Claims - Claims
 This service contains information on claims that the logged in user has access to as the issuer of the claim. In the case of test users, random data is created when logging in for first time and continues to be used after that. The user also updates the data through their own actions and the data is retained between sessions.
 
 The information is comparable to the data which users have access to via Arion Online Banking and Arion Bank’s B2B solutions, and there for not available working with identifiers, claimants and other operations at the moment.

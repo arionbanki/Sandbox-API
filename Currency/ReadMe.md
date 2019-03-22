@@ -2,7 +2,7 @@
 https://arionapi-sandbox.azure-api.net/currency/v1
 
 
-### About CurrencyRates - CurrencyRates
+### CurrencyRates - CurrencyRates
 This service contains information on official exchange rates for different periods. The data should reflect the updated exchange rate displayed on Arion Bank’s website.
 
 

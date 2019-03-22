@@ -2,7 +2,7 @@
 https://arionapi-sandbox.azure-api.net/management/v1
 
 
-### About Management - UserManagement
+### Management - UserManagement
 This service contains actions for working with clients and user registration for fintech sandbox.
 
 

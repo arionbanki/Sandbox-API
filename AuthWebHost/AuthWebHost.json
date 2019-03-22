@@ -6,7 +6,7 @@
   "definitions": {},
   "host": "arionapi-sandbox.azure-api.net",
   "info": {
-    "description": "## About Management - UserManagement\nThis service contains actions for working with clients and user registration for fintech sandbox.\n",
+    "description": "## Management - UserManagement\nThis service contains actions for working with clients and user registration for fintech sandbox.\n",
     "title": "Management API",
     "version": "v1"
   },

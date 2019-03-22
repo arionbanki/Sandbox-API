@@ -2,7 +2,7 @@
 https://arionapi-sandbox.azure-api.net/creditcards/v1
 
 
-### About CreditCards - CreditCards
+### CreditCards - CreditCards
 This service contains information on credit cards to which a logged in user has access. In the case of test users, random data is created when logging in for first time and continues to be used after that.
 
 The information is comparable to the data which users have access to via Arion Online Banking, Arion App and Arion Bank’s B2B solutions. You can find information on the different features of each card and view transactions for each period.
