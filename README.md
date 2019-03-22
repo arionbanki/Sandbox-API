@@ -99,3 +99,4 @@ https://arionapi-identityserver3-sandbox.azurewebsites.net/connect/authorize?res
 
 # Tools
 [Url-encoder for redirect urls](http://meyerweb.com/eric/tools/dencoder)
+[JWT.IO allows you to decode, verify and generate JWT.](https://jwt.io)
