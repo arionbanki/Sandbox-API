@@ -1,234 +1,8 @@
 ﻿{
-  "swagger": "2.0",
-  "info": {
-    "title": "Claims API",
-    "version": "v1"
-  },
-  "host": "arionapi-sandbox.azure-api.net",
   "basePath": "/claims/v1",
-  "schemes": [
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "paths": {
-    "/claims": {
-      "get": {
-        "parameters": [
-          {
-            "default": 1,
-            "description": "The page parameter defines the page number of the result set to return the data. For example, if your query returns 500 records, you can specify pageCount as 50 to return 50 records in a page, which implies that you’ll have 10 pages of data (50 records * 10 pages = 500). Now, if you want to return records 100-150, specify the page value as 3",
-            "in": "query",
-            "minimum": 1,
-            "name": "page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "default": 10,
-            "description": "The perPage parameter defines the number of records to return per page.",
-            "in": "query",
-            "maximum": 500,
-            "name": "perPage",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "The kennitala of the claimant whose data is being queried. If empty, data will be returned for all claimants linked to the authenticated user.",
-            "in": "query",
-            "name": "claimantKennitala",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The unique identifier of the claimant used to filter the query. If empty, data will be returned for all identifiers.",
-            "in": "query",
-            "name": "identifier",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Payor's kennitala.",
-            "in": "query",
-            "name": "payorKennitala",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Status of the claim.",
-            "enum": [
-              "unpaid",
-              "paid",
-              "cancelled",
-              "invalid"
-            ],
-            "in": "query",
-            "name": "status",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "State of the claim. Indicates the collections state the claim is in.",
-            "enum": [
-              "primary",
-              "secondary",
-              "legal"
-            ],
-            "in": "query",
-            "name": "state",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Reference date for the datespan of the query.",
-            "enum": [
-              "duedate",
-              "finalduedate",
-              "cancellationdate",
-              "creationdate"
-            ],
-            "in": "query",
-            "name": "referenceDate",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Date from inclusive.",
-            "in": "query",
-            "name": "dateFrom",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Date to inclusive.",
-            "in": "query",
-            "name": "dateTo",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/claimCollection"
-            }
-          }
-        },
-        "description": "Returns a list of claims belonging to the claimant used to make the API request."
-      },
-      "post": {
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/claim"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/claim"
-            }
-          }
-        },
-        "description": "Create a new claim."
-      }
-    },
-    "/claims/{claimId}": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "claimId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/claim"
-            }
-          }
-        },
-        "description": "Returns a representation of a claim."
-      },
-      "patch": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "claimId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/claim"
-            }
-          }
-        },
-        "description": "Allows you to modify the properties of a claim. For example to cancel a claim."
-      }
-    },
-    "/claims/{claimId}/claimTransactions": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "claimId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/claimTransactionCollection"
-            }
-          }
-        },
-        "description": "Returnes a list of transactions that encapsulate information about the status of a claim associated with a particular event in its lifetime."
-      }
-    }
-  },
   "definitions": {
     "claim": {
       "description": "Claim",
@@ -1315,6 +1089,232 @@
       "type": "object"
     }
   },
+  "host": "arionapi-sandbox.azure-api.net",
+  "info": {
+    "description": "## About Claims - Claims\nThis service contains information on claims that the logged in user has access to as the issuer of the claim. In the case of test users, random data is created when logging in for first time and continues to be used after that. The user also updates the data through their own actions and the data is retained between sessions.\n\nThe information is comparable to the data which users have access to via Arion Online Banking and Arion Bank’s B2B solutions, and there for not available working with identifiers, claimants and other operations at the moment.\n",
+    "title": "Claims API",
+    "version": "v1"
+  },
+  "paths": {
+    "/claims": {
+      "get": {
+        "description": "Returns a list of claims belonging to the claimant used to make the API request.",
+        "parameters": [
+          {
+            "default": 1,
+            "description": "The page parameter defines the page number of the result set to return the data. For example, if your query returns 500 records, you can specify pageCount as 50 to return 50 records in a page, which implies that you’ll have 10 pages of data (50 records * 10 pages = 500). Now, if you want to return records 100-150, specify the page value as 3",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The perPage parameter defines the number of records to return per page.",
+            "in": "query",
+            "maximum": 500,
+            "name": "perPage",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The kennitala of the claimant whose data is being queried. If empty, data will be returned for all claimants linked to the authenticated user.",
+            "in": "query",
+            "name": "claimantKennitala",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The unique identifier of the claimant used to filter the query. If empty, data will be returned for all identifiers.",
+            "in": "query",
+            "name": "identifier",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Payor's kennitala.",
+            "in": "query",
+            "name": "payorKennitala",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Status of the claim.",
+            "enum": [
+              "unpaid",
+              "paid",
+              "cancelled",
+              "invalid"
+            ],
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "State of the claim. Indicates the collections state the claim is in.",
+            "enum": [
+              "primary",
+              "secondary",
+              "legal"
+            ],
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Reference date for the datespan of the query.",
+            "enum": [
+              "duedate",
+              "finalduedate",
+              "cancellationdate",
+              "creationdate"
+            ],
+            "in": "query",
+            "name": "referenceDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Date from inclusive.",
+            "in": "query",
+            "name": "dateFrom",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Date to inclusive.",
+            "in": "query",
+            "name": "dateTo",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/claimCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new claim.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/claim"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/claim"
+            }
+          }
+        }
+      }
+    },
+    "/claims/{claimId}": {
+      "get": {
+        "description": "Returns a representation of a claim.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "claimId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/claim"
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Allows you to modify the properties of a claim. For example to cancel a claim.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "claimId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/claim"
+            }
+          }
+        }
+      }
+    },
+    "/claims/{claimId}/claimTransactions": {
+      "get": {
+        "description": "Returnes a list of transactions that encapsulate information about the status of a claim associated with a particular event in its lifetime.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "claimId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/claimTransactionCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "oauth_2_0_undefined": {
       "authorizationUrl": "https://arionapi-identityserver3-sandbox.azurewebsites.net/connect/authorize",
@@ -1325,5 +1325,6 @@
       "flow": "implicit",
       "type": "oauth2"
     }
-  }
+  },
+  "swagger": "2.0"
 }

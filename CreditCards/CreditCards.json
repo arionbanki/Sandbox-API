@@ -1,143 +1,8 @@
 ﻿{
-  "swagger": "2.0",
-  "info": {
-    "title": "Creditcards API Party",
-    "version": "v1"
-  },
-  "host": "arionapi-sandbox.azure-api.net",
   "basePath": "/creditcards/v1",
-  "schemes": [
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "paths": {
-    "/creditCards": {
-      "get": {
-        "parameters": [
-          {
-            "description": "The field to be searched on.\n",
-            "in": "query",
-            "name": "searchField",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The value to search the field against.\n",
-            "in": "query",
-            "name": "searchValue",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/creditCardCollection"
-            }
-          }
-        },
-        "description": "Provides an overview of credit cards. It provides information on cards where the logged-in user is a cardholder or owner of a card, provided that user is entitled to see the credit card. It shows information on cards in active use and cards in the legal collection process. It does not show amounts on cards in the legal collection process as collection costs are not included in the balance. In such cases null is returned in the field for amounts"
-      }
-    },
-    "/creditCards/{cardId}": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "cardId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/creditCardDetail"
-            }
-          }
-        },
-        "description": "Provides detailed information on individual cards. The logged in user has to be a cardholder or the owner of a card and also have permission to see the card. It does not show amounts on cards in the legal collection process as collection costs are not included in the balance. In such cases null is returned in the field for amounts."
-      }
-    },
-    "/creditCards/{cardId}/creditCardTransactions": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "cardId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": 1,
-            "description": "The page parameter defines the page number of the result set to return the data. For example, if your query returns 500 records, you can specify pageCount as 50 to return 50 records in a page, which implies that you’ll have 10 pages of data (50 records * 10 pages = 500). Now, if you want to return records 100-150, specify the page value as 3",
-            "in": "query",
-            "minimum": 1,
-            "name": "page",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "default": 10,
-            "description": "The perPage parameter defines the number of records to return per page.",
-            "in": "query",
-            "maximum": 500,
-            "name": "perPage",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "description": "The start date used to filter the results.\n",
-            "in": "query",
-            "name": "dateFrom",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The end date used to filter the results.\n",
-            "in": "query",
-            "name": "dateTo",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/creditCardTransactionCollection"
-            }
-          }
-        },
-        "description": "Allows the user to view the transactions on a card performed during a specific period. The logged-in user has to be a cardholder or the owner of a card and also have permission to see the card. It is possible to get the data by defining page number and page size."
-      }
-    }
-  },
   "definitions": {
     "creditCardCollection": {
       "properties": {
@@ -561,6 +426,141 @@
       "type": "object"
     }
   },
+  "host": "arionapi-sandbox.azure-api.net",
+  "info": {
+    "description": "## About CreditCards - CreditCards\nThis service contains information on credit cards to which a logged in user has access. In the case of test users, random data is created when logging in for first time and continues to be used after that.\n\nThe information is comparable to the data which users have access to via Arion Online Banking, Arion App and Arion Bank’s B2B solutions. You can find information on the different features of each card and view transactions for each period.\n",
+    "title": "Creditcards API",
+    "version": "v1"
+  },
+  "paths": {
+    "/creditCards": {
+      "get": {
+        "description": "Provides an overview of credit cards. It provides information on cards where the logged-in user is a cardholder or owner of a card, provided that user is entitled to see the credit card. It shows information on cards in active use and cards in the legal collection process. It does not show amounts on cards in the legal collection process as collection costs are not included in the balance. In such cases null is returned in the field for amounts",
+        "parameters": [
+          {
+            "description": "The field to be searched on.\n",
+            "in": "query",
+            "name": "searchField",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The value to search the field against.\n",
+            "in": "query",
+            "name": "searchValue",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/creditCardCollection"
+            }
+          }
+        }
+      }
+    },
+    "/creditCards/{cardId}": {
+      "get": {
+        "description": "Provides detailed information on individual cards. The logged in user has to be a cardholder or the owner of a card and also have permission to see the card. It does not show amounts on cards in the legal collection process as collection costs are not included in the balance. In such cases null is returned in the field for amounts.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/creditCardDetail"
+            }
+          }
+        }
+      }
+    },
+    "/creditCards/{cardId}/creditCardTransactions": {
+      "get": {
+        "description": "Allows the user to view the transactions on a card performed during a specific period. The logged-in user has to be a cardholder or the owner of a card and also have permission to see the card. It is possible to get the data by defining page number and page size.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "The page parameter defines the page number of the result set to return the data. For example, if your query returns 500 records, you can specify pageCount as 50 to return 50 records in a page, which implies that you’ll have 10 pages of data (50 records * 10 pages = 500). Now, if you want to return records 100-150, specify the page value as 3",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The perPage parameter defines the number of records to return per page.",
+            "in": "query",
+            "maximum": 500,
+            "name": "perPage",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "The start date used to filter the results.\n",
+            "in": "query",
+            "name": "dateFrom",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The end date used to filter the results.\n",
+            "in": "query",
+            "name": "dateTo",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/creditCardTransactionCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "oauth_2_0_undefined": {
       "authorizationUrl": "https://arionapi-identityserver3-sandbox.azurewebsites.net/connect/authorize",
@@ -571,5 +571,6 @@
       "flow": "implicit",
       "type": "oauth2"
     }
-  }
+  },
+  "swagger": "2.0"
 }

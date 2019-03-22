@@ -1,67 +1,8 @@
 ﻿{
-  "swagger": "2.0",
-  "info": {
-    "title": "Currency Rates API",
-    "version": "v1"
-  },
-  "host": "arionapi-sandbox.azure-api.net",
   "basePath": "/currency/v1",
-  "schemes": [
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "paths": {
-    "/currencyRates": {
-      "get": {
-        "parameters": [
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "description": "Returns information about available currency exhange rates"
-      }
-    },
-    "/currencyRates/{currencyTypeName}": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "currencyTypeName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/currencyWithBuyAndSellRateCollection"
-            }
-          }
-        },
-        "description": "Returns information about a particular exchange rate"
-      }
-    }
-  },
   "definitions": {
     "currencyWithBuyAndSellRateCollection": {
       "properties": {
@@ -117,5 +58,65 @@
       "type": "object"
     }
   },
-  "securityDefinitions": {}
+  "host": "arionapi-sandbox.azure-api.net",
+  "info": {
+    "description": "## About CurrencyRates - CurrencyRates\nThis service contains information on official exchange rates for different periods. The data should reflect the updated exchange rate displayed on Arion Bank’s website.\n",
+    "title": "Currency Rates API",
+    "version": "v1"
+  },
+  "paths": {
+    "/currencyRates": {
+      "get": {
+        "description": "Returns information about available currency exhange rates",
+        "parameters": [
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/currencyRates/{currencyTypeName}": {
+      "get": {
+        "description": "Returns information about a particular exchange rate",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "currencyTypeName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/currencyWithBuyAndSellRateCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {},
+  "swagger": "2.0"
 }

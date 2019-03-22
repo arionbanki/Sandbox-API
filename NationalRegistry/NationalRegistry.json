@@ -1,102 +1,8 @@
 ﻿{
-  "swagger": "2.0",
-  "info": {
-    "title": "National Registry API",
-    "version": "v1"
-  },
-  "host": "arionapi-sandbox.azure-api.net",
   "basePath": "/nationalregistry/v1",
-  "schemes": [
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
-  "produces": [
-    "application/json"
-  ],
-  "paths": {
-    "/nationalRegistryParties": {
-      "get": {
-        "parameters": [
-          {
-            "default": 1,
-            "description": "The page parameter defines the page number of the result set to return the data. For example, if your query returns 500 records, you can specify pageCount as 50 to return 50 records in a page, which implies that you’ll have 10 pages of data (50 records * 10 pages = 500). Now, if you want to return records 100-150, specify the page value as 3",
-            "in": "query",
-            "minimum": 1,
-            "name": "page",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "default": 10,
-            "description": "The perPage parameter defines the number of records to return per page.",
-            "in": "query",
-            "maximum": 500,
-            "name": "perPage",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The name, either in full or partial entry.",
-            "in": "query",
-            "name": "partialName",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The kennitala, either in full or partial entry.",
-            "in": "query",
-            "name": "partialKennitala",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/nationalRegistryPartyCollection"
-            }
-          }
-        },
-        "description": "Returns information about parties from the Icelandic National Registry, both individuals and corporations."
-      }
-    },
-    "/nationalRegistryParties/{kennitala}": {
-      "get": {
-        "parameters": [
-          {
-            "in": "path",
-            "name": "kennitala",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Used to send a valid subscription key.\n",
-            "in": "header",
-            "name": "Ocp-Apim-Subscription-Key",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/nationalRegistryParty"
-            }
-          }
-        },
-        "description": "A uniquely identifiable party, by kennitala."
-      }
-    }
-  },
   "definitions": {
     "nationalRegistryParty": {
       "description": "Legal entity, individual or organization.",
@@ -208,6 +114,100 @@
       "type": "object"
     }
   },
+  "host": "arionapi-sandbox.azure-api.net",
+  "info": {
+    "description": "<h3>Þjóðskrá</h3><br>Undir þessari þjónustu má fletta upp í þjóðskrá, ef innskráður notandi hefur aðgang að henni. Virknin er sambærileg við uppflettingar sem notendur hafa aðgang í gegnum netbanka Arion banka. Ákveðið þýði af kennitölum er til staðar sem nota má fyrir aðgang að prófunargögnum.\n            \nHér má skoða <a href='https://rawgit.com/arionbanki/Fintech-Party-2016-06-API/master/NationalRegistry/NationalRegistry.html' title='sjá NationalRegistry.html'>html lýsingu</a> á samningnum í GitHub repo fyrir Fintech partý.\n",
+    "title": "National Registry API",
+    "version": "v1"
+  },
+  "paths": {
+    "/nationalRegistryParties": {
+      "get": {
+        "description": "Returns information about parties from the Icelandic National Registry, both individuals and corporations.",
+        "parameters": [
+          {
+            "default": 1,
+            "description": "The page parameter defines the page number of the result set to return the data. For example, if your query returns 500 records, you can specify pageCount as 50 to return 50 records in a page, which implies that you’ll have 10 pages of data (50 records * 10 pages = 500). Now, if you want to return records 100-150, specify the page value as 3",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The perPage parameter defines the number of records to return per page.",
+            "in": "query",
+            "maximum": 500,
+            "name": "perPage",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The name, either in full or partial entry.",
+            "in": "query",
+            "name": "partialName",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "The kennitala, either in full or partial entry.",
+            "in": "query",
+            "name": "partialKennitala",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/nationalRegistryPartyCollection"
+            }
+          }
+        }
+      }
+    },
+    "/nationalRegistryParties/{kennitala}": {
+      "get": {
+        "description": "A uniquely identifiable party, by kennitala.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "kennitala",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Used to send a valid subscription key.\n",
+            "in": "header",
+            "name": "Ocp-Apim-Subscription-Key",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/nationalRegistryParty"
+            }
+          }
+        }
+      }
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "oauth_2_0_undefined": {
       "authorizationUrl": "https://arionapi-identityserver3-sandbox.azurewebsites.net/connect/authorize",
@@ -218,5 +218,6 @@
       "flow": "implicit",
       "type": "oauth2"
     }
-  }
+  },
+  "swagger": "2.0"
 }

@@ -1,19 +1,17 @@
-﻿# Creditcards API - Arion banki Fintech Party API documentation version v1
+﻿# Creditcards API - Arion banki Fintech API documentation version v1
 https://arionapi-sandbox.azure-api.net/creditcards/v1
 
 
-### Um CreditCards - Greiðslukort
-Undir þessari þjónustu er að finna upplýsingar um greiðslukort sem innskráður notandi hefur aðgang að. Þegar um er að ræða prófananotanda, eru búin til slembigögnin í fyrstu innskráningu sem notuð eru svo áfram.
+### About CreditCards - CreditCards
+This service contains information on credit cards to which a logged in user has access. In the case of test users, random data is created when logging in for first time and continues to be used after that.
 
-Upplýsingarnar eru sambærilegar við gögn sem notendur hafa aðgang í gegnum netbanka, smáforrit og B2B lausnir Arion banka. Grunnupplýsingar um eiginleika greiðslukorts má skoða en undir hverjum korti má svo nálgast hreyfingar eftir tímabilum.
-      
-Hér má skoða [html lýsingu](https://rawgit.com/arionbanki/Fintech-Party-2016-06-API/master/CreditCards/CreditCards.html "sjá CreditCards.html") á samningnum í GitHub repo fyrir Fintech partý.
+The information is comparable to the data which users have access to via Arion Online Banking, Arion App and Arion Bank’s B2B solutions. You can find information on the different features of each card and view transactions for each period.
 
 
-### Öryggi
-Köll á þjónustuna þurfa að innihalda API lykil sem samþykkt teymi í Fintech Party munu geta sótt um á gátt API viðmótsins. Þess utan er þjónustan varinn með OAuth 2.0 heimildarveitingu, sem ýmist fylgir authorization_code eða implicit flæði.
-      
-Sem stendur er afmörkun heimilda nokkuð gróf, auðkenndur notandi fær aðgang að öllum upplýsingum og aðgerðum undir auðlindinni. Í framtíðinni má sjá fyrir sér að miðla tilteknum upplýsingum sem notandi heimilar og sleppa eða jafnvel maska svæði eftir því hvað passar tengt þjónustuveitendum.
+### Security
+Service requests need to contain an API key which approved teams in the hackathon will be able to get through the API portal.  Moreover the service is protected with OAuth 2.0 authentication, which includes either an authorization code or implicit flow.
+
+At the moment the delimitation of authorizations is rather unsophisticated, an authenticated user gets access to all information under the resource.
 
 
 

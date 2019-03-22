@@ -2,18 +2,17 @@
 ---
 title: Accounts API - Arion banki Fintech
 documentation: 
-  - title: Um Accounts - Innlánsreikningar
+  - title: About Accounts - Deposit accounts
     content: |
-      Undir þessari þjónustu er að finna upplýsingar um bankareikninga sem innskráður notandi hefur aðgang að. Þegar um er að ræða prófananotanda, eru búin til slembigögnin í fyrstu innskráningu sem notuð eru svo áfram.
+      This service contains information on bank accounts to which a logged in user has access. In the case of test users, random data is created when logging in for first time and continues to be used after that.
 
-      Upplýsingarnar eru sambærilegar við gögn sem notendur hafa aðgang í gegnum netbanka, smáforrit og B2B lausnir Arion banka. Þannig sér notandi bæði veltureikninga sína sem og sparnaðarreikninga. Grunnupplýsingar um eiginleika reiknings eru á honum sjálfum en undir hverjum reikningi má svo nálgast hreyfingar og stöður.
+      The information is comparable to the data which users have access to via Arion Online Banking, Arion App and Arion Bank’s B2B solutions. The user can both view their current and savings accounts.  The basic information for each account is displayed and transactions and balances can be viewed for each account.
             
-      Hér má skoða [html lýsingu](/accounts.html "sjá Accounts.html") á samningnum í GitHub repo fyrir Fintech partý.
-  - title: Öryggi
+  - title: Security
     content: |
-      Köll á þjónustuna þurfa að innihalda API lykil sem samþykkt teymi í Fintech Party munu geta sótt um á gátt API viðmótsins. Þess utan er þjónustan varinn með OAuth 2.0 heimildarveitingu, sem ýmist fylgir authorization_code eða implicit flæði.
+      Service requests need to contain an API key which approved teams in the hackathon will be able to get through the API portal.  Moreover the service is protected with OAuth 2.0 authentication, which includes either an authorization code or implicit flow.
 
-      Sem stendur er afmörkun heimilda nokkuð gróf, auðkenndur notandi fær aðgang að öllum upplýsingum og aðgerðum undir auðlindinni. Í framtíðinni má sjá fyrir sér að miðla tilteknum upplýsingum sem notandi heimilar, eftir því sem passar þjónustuveitendum.      
+      At the moment the delimitation of authorizations is rather unsophisticated, an authenticated user gets access to all information under the resource.
 baseUri: https://arionapi-sandbox.azure-api.net/accounts/{version}
 version: v1
 mediaType: application/json

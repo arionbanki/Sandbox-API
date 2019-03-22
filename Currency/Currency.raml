@@ -2,14 +2,15 @@
 ---
 title: Currency Rates API - Arion banki Fintech
 documentation:
-  - title: Um CurrencyRates - Gengisupplýsingar
+  - title: About CurrencyRates - CurrencyRates
     content: |
-      Undir þessari þjónustu er að finna upplýsingar um skráð gengi eftir tímabilum. Gögn þjónustunnar eiga að endurspegla uppfærða stöðu gengist sem sýnilegt er á heimasíðu Arion banka.
+      This service contains information on official exchange rates for different periods. The data should reflect the updated exchange rate displayed on Arion Bank’s website.
 
-      Hér má skoða [html lýsingu](/Currency.html "sjá Currency.html") á samningnum í GitHub repo fyrir Fintech partý.
-  - title: Öryggi
+  - title: Security
     content: |
-      Köll á þjónustuna þurfa að innihalda API lykil sem samþykkt teymi í Fintech Party munu geta sótt um á gátt API viðmótsins. Að öðru leiti er þjónustan ekki varin auðkenningu eða kallar á frekari heimildir.
+      Service requests need to contain an API key which approved teams in the hackathon will be able to get through the API portal.
+
+      Moreover the service is not protected.
 baseUri: https://arionapi-sandbox.azure-api.net/currency/{version}
 version: v1
 mediaType: application/json

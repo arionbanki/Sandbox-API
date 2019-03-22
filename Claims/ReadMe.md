@@ -2,18 +2,16 @@
 https://arionapi-sandbox.azure-api.net/claims/v1
 
 
-### Um Claims - Innheimtukröfur
-Undir þessari þjónustu er að unnið með innheimtukröfur innskráður notandi sem kröfuhafi hefur aðgang að. Þegar um er að ræða prófananotanda, eru búin til slembigögnin í fyrstu innskráningu sem notuð eru svo áfram. Þess utan uppfærir notandi gögnin með eigin aðgerðum og halda þau sér milli innskráninga.
+### About Claims - Claims
+This service contains information on claims that the logged in user has access to as the issuer of the claim. In the case of test users, random data is created when logging in for first time and continues to be used after that. The user also updates the data through their own actions and the data is retained between sessions.
 
-Upplýsingarnar eru sambærilegar við gögn sem notendur hafa aðgang í gegnum netbanka og B2B lausnir Arion banka og er því ekki  í boðið að vinna með auðkenni, kröfustofna eða aðgerðir félagaþjónustu sem stendur.
-      
-Hér má skoða [html lýsingu](https://rawgit.com/arionbanki/Fintech-Party-2016-06-API/master/Claims/Claims.html "sjá Claims.html") á samningnum í GitHub repo fyrir Fintech partý.
+The information is comparable to the data which users have access to via Arion Online Banking and Arion Bank’s B2B solutions, and there for not available working with identifiers, claimants and other operations at the moment.
 
 
-### Öryggi
-Köll á þjónustuna þurfa að innihalda API lykil sem samþykkt teymi í Fintech Party munu geta sótt um á gátt API viðmótsins. Þess utan er þjónustan varinn með OAuth 2.0 heimildarveitingu, sem ýmist fylgir authorization_code eða implicit flæði.
-      
-Sem stendur er afmörkun heimilda nokkuð gróf, auðkenndur notandi fær aðgang að öllum upplýsingum og aðgerðum undir auðlindinni. Í framtíðinni má sjá fyrir sér að miðla tilteknum upplýsingum sem notandi heimilar og sleppa eða jafnvel maska svæði eftir því hvað passar tengt þjónustuveitendum.
+### Security
+Service requests need to contain an API key which approved teams in the hackathon will be able to get through the API portal.  Moreover the service is protected with OAuth 2.0 authentication, which includes either an authorization code or implicit flow.
+
+At the moment the delimitation of authorizations is rather unsophisticated, an authenticated user gets access to all information under the resource.
 
 
 

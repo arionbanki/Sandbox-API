@@ -1,23 +1,19 @@
 ﻿{
-  "swagger": "2.0",
-  "info": {
-    "title": "Management API",
-    "version": "v1"
-  },
-  "host": "arionapi-sandbox.azure-api.net",
   "basePath": "/management/v1",
-  "schemes": [
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
-  "produces": [
-    "application/json"
-  ],
+  "definitions": {},
+  "host": "arionapi-sandbox.azure-api.net",
+  "info": {
+    "description": "## About Management - UserManagement\nThis service contains actions for working with clients and user registration for fintech sandbox.\n",
+    "title": "Management API",
+    "version": "v1"
+  },
   "paths": {
     "/clients": {
       "post": {
+        "description": "Used to register a Client, so the authorization server will recognize and correctly redirect tokens back to the solution.",
         "parameters": [
           {
             "description": "The descriptive but unique identifier for this client.",
@@ -46,12 +42,12 @@
             "name": "Ocp-Apim-Subscription-Key",
             "type": "string"
           }
-        ],
-        "description": "Used to register a Client, so the authorization server will recognize and correctly redirect tokens back to the solution."
+        ]
       }
     },
     "/rbjwt": {
       "get": {
+        "description": "Returns the Jwt token to use with RBs API services.",
         "parameters": [
           {
             "description": "Used to send a valid subscription key.\n",
@@ -59,12 +55,12 @@
             "name": "Ocp-Apim-Subscription-Key",
             "type": "string"
           }
-        ],
-        "description": "Returns the Jwt token to use with RBs API services."
+        ]
       }
     },
     "/users": {
       "post": {
+        "description": "Makes it possible to get a new test user to use in the Fintech party sandbox. Note down the username and password, as it will not be shown again. The ClientID must be registered first.",
         "parameters": [
           {
             "description": "The descriptive but unique identifier for this client.",
@@ -79,11 +75,16 @@
             "name": "Ocp-Apim-Subscription-Key",
             "type": "string"
           }
-        ],
-        "description": "Makes it possible to get a new test user to use in the Fintech party sandbox. Note down the username and password, as it will not be shown again. The ClientID must be registered first."
+        ]
       }
     }
   },
-  "definitions": {},
-  "securityDefinitions": {}
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {},
+  "swagger": "2.0"
 }

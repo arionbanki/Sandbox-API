@@ -1,7 +1,7 @@
 ﻿{
   "swagger": "2.0",
   "info": {
-    "title": "Digital Signature API",
+    "title": "Digital Signature API - Arion banki Fintech",
     "version": "v1"
   },
   "host": "arionapi-sandbox.azure-api.net",

@@ -2,12 +2,12 @@
 https://arionapi-sandbox.azure-api.net/management/v1
 
 
-### Um Management - Notendastjórnun
-Undir þessari þjónustu er að finna aðgerðir til að vinna með biðlara og notendaskráningu, fyrir Fintech sandkassann.
+### About Management - UserManagement
+This service contains actions for working with clients and user registration for fintech sandbox.
 
 
-### Öryggi
-Köll á þjónustuna þurfa að innihalda API lykil sem samþykkt teymi í Fintech Party munu geta sótt um á gátt API viðmótsins. 
+### Security
+Service requests need to contain an API key which approved teams in the hackathon will be able to get through the API portal. 
       
 
 
