@@ -40,7 +40,7 @@ You are provided with two developer keys for every subscription: Primary and Sec
  
 To register your client in IdentityServer, you need to provide 3 things:
 
-**ClientId** - your client id provieed in Arion portal
+**ClientId** - client id of your own choice etc. AppTeam1
 
 **RedirectUrl** - when authenication is done in the app, our identityserver will redirect to your url
 
