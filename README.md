@@ -1,11 +1,12 @@
 # Documentation for Arion's API offering in hackathons
 
 # API definitions
-* [Accounts - innlánsreikningar](https://github.com/arionbanki/Fintech-Party-2016-06-API/tree/master/Accounts-en)  
-* [CreditCards - greiðslukort](https://github.com/arionbanki/Fintech-Party-2016-06-API/tree/master/CreditCards-en)  
-* [Claims - innheimtukröfur](https://github.com/arionbanki/Fintech-Party-2016-06-API/tree/master/Claims-en)
-* [NationalRegistry - þjóðskrá](https://github.com/arionbanki/Fintech-Party-2016-06-API/tree/master/NationalRegistry-en)
-* [Currency - gengisupplýsingar](https://github.com/arionbanki/Fintech-Party-2016-06-API/tree/master/Currency-en)
+https://github.com/arionbanki/Sandbox-API
+* [Accounts - innlánsreikningar](https://github.com/arionbanki/Sandbox-API/tree/master/Accounts-en)  
+* [CreditCards - greiðslukort](https://github.com/arionbanki/Sandbox-API/tree/master/CreditCards-en)  
+* [Claims - innheimtukröfur](https://github.com/arionbanki/Sandbox-API/tree/master/Claims-en)
+* [NationalRegistry - þjóðskrá](https://github.com/arionbanki/Sandbox-API/tree/master/NationalRegistry-en)
+* [Currency - gengisupplýsingar](https://github.com/arionbanki/Sandbox-API/tree/master/Currency-en)
 
 
 # 1. Getting API Credentials
