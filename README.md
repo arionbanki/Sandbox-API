@@ -57,7 +57,7 @@ Code flow is usually targeted at web applications or other systems that have a s
 
 You will be prompted with: YOURCLIENTID registered, your secret is: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx - please store it carefully, you will never see this again!
 
-# 4. Assign Registered client to a user
+# 3. Assign Registered client to a user
 Select **Browser** of your choice and goto the url below.
 Use the clientId you were provided with on the [Developer profile page](https://arionapi-sandbox.portal.azure-api.net/developer)
 https://arionapi-identityserver3-sandbox.azurewebsites.net/NewUser?clientId=YOURCLIENTID |
