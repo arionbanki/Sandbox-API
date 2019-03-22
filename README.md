@@ -33,7 +33,7 @@ Select your **Subscription**
 
 In the [Developer profile page](https://arionapi-sandbox.portal.azure-api.net/developer)
 
-You are provided two developer keys for every subscription, Primary and Secondary
+You are provided with two developer keys for every subscription: Primary and Secondary
 
 
 # 2. Getting Client ID and Client Secret
@@ -48,9 +48,7 @@ You are provided with clientid
 
 # 3. Register Client
  
-To register your client in IdentityServer.
-
-You need to provide 3 things:
+To register your client in IdentityServer, you need to provide 3 things:
 
 **ClientId** - your client id provieed in Arion portal
 
@@ -71,7 +69,7 @@ You will be prompted with: YOURCLIENTID registered, your secret is: xxxxxxxx-xxx
 
 # 4. Assign Registered client to a user
 Select **Browser** of your choice and goto the url below.
-Use the clientId you were prodived on the [Developer profile page](https://arionapi-sandbox.portal.azure-api.net/developer)
+Use the clientId you were provided with on the [Developer profile page](https://arionapi-sandbox.portal.azure-api.net/developer)
 https://arionapi-identityserver3-sandbox.azurewebsites.net/NewUser?clientId=YOURCLIENTID |
 
 You will be prompted with: Username: John Doe, Password: xxxxxxxxx - please store it carefully, you will never see this again!
